@@ -2,10 +2,24 @@
 
 angular.module('bbfabApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+    $scope.menu = [
+    {
+      'title': 'Our Story',
+      'link': '/ourstory'
+    },
+    {
+      'title': 'Beard Growers',
+      'link': '/beardgrowers'
+    },
+    {
+      'title': 'Become a Grower',
+      'link': '/becomeagrower'
+    },
+    {
+      'title': 'Support',
+      'link': '/support'
+    }
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

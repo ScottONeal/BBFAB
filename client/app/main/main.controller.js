@@ -2,21 +2,20 @@
 
 angular.module('bbfabApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
+    var base = '/assets/images/';
+    $scope.slides = [
+      {
+        image: base+'me.jpg',
+        title: 'Scott'
+      },
+      {
+        image: base+'will.jpg',
+        title: 'Will'
+      },
+      {
+        image: base+'guy.jpg',
+        title: 'Guy'
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    ];
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
   });

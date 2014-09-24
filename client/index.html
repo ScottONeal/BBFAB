@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>Big Beards for a Baby</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -26,8 +26,14 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <div ng-include="'components/navbar/navbar.html'"></div>
     <!-- Add your site or application content here -->
     <div ng-view=""></div>
+    <footer class="footer">
+      <div class="container">
+          <p><span class="glyphicon glyphicon-heart"></span> THANK you so much in advance for you support in our adoption journey!</p>
+      </div>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -53,6 +59,8 @@
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+      <script src="bower_components/bootstrap-ui/dist/ui-bootstrap-0.11.0.js"></script>
+      <script src="bower_components/bootstrap-ui/dist/ui-bootstrap-tpls-0.11.0.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -65,8 +73,12 @@
           <script src="app/account/signup/signup.controller.js"></script>
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
+          <script src="app/beardgrowers/beardgrowers.controller.js"></script>
+          <script src="app/becomeagrower/becomeagrower.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/ourstory/ourstory.controller.js"></script>
+          <script src="app/support/support.controller.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
