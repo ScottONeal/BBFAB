@@ -60,3 +60,11 @@ div#main .container {
 .twitter-timeline {
   height: 400px;
 }
+
+.countdown {
+  width: 100%;
+  padding:20px;
+  font-size: 20pt;
+  color: #FFF;
+  background-color: #555;
+}

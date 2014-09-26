@@ -6,7 +6,8 @@ angular.module('bbfabApp', [
   'ngSanitize',
   'ngRoute',
   'ngAnimate',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'timer'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
