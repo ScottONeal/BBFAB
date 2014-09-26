@@ -26,6 +26,10 @@ angular.module('bbfabApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
+    $scope.goto = function(path) {
+      $location.path(path);
+    };
+
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');

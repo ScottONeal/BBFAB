@@ -5,12 +5,30 @@ angular.module('bbfabApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'ngAnimate',
   'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
-      .otherwise({
-        redirectTo: '/'
+      .when('/', {
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/ourstory', {
+        templateUrl: 'app/ourstory/ourstory.html',
+        controller: 'OurStoryCtrl'
+      })
+      .when('/becomeagrower', {
+        templateUrl: 'app/becomeagrower/becomeagrower.html',
+        controller: 'BecomeAGrowerCtrl'
+      })
+      .when('/beardgrowers', {
+        templateUrl: 'app/beardgrowers/beardgrowers.html',
+        controller: 'BeardGrowersCtrl'
+      })
+      .when('/support', {
+        templateUrl: 'app/support/support.html',
+        controller: 'SupportCtrl'
       });
 
     $locationProvider.html5Mode(true);

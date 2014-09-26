@@ -1,5 +1,117 @@
 <div class="container">
-  <h1>Become a Grower!</h1>
+    <h1>Become a Grower!</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Contest Instructions</h4>
+      <p>
+        <strong>Grow a Beard</strong> -  For those of who already have a beard, keep it growing. And the others who are clean shaven, start the growing. If you are worried about keeping it professional for work, trimming will be allowed. If you don’t care about any of that, then by all means let the neck beard grow.  The contest will be from November 1st – May 1st.
+      </p>
 
-  <p>TODO</p>
+      <p>
+      <strong>Collect Pledges</strong> – Every contestant (beard grower) will need to find 10+ people to sponsor their monthly beard growth. Every sponsor will pay $10+ for every month of growth. ($60 for the 6 months) ex. “I will pay you $10 for every month you don’t shave.”
+      </p>
+
+      <p>
+        <strong>Advertise</strong> – Get everyone you know involved. Share it on facebook, twitter, instagram, and this blog
+      </p>
+
+      <p>
+        <strong>Progress Updates</strong> – every month we want to see your beard and sponsor progress. We will update the blog with photos of you all rocking your beard growth.
+      </p>
+
+      <p>
+        <strong>Gather Funds</strong> – Each contestant is responsibly for collecting their monthly pledges. Pledges need to be collected no later than May 1st. Sponsors can pay by cash, check, or pay on this site via “beard support” (scott you can decide what it should say, I don’t care) You can pay monthly here, or if you have friends and family who just want to do a one time donation.
+
+6.     Rock it – we just want you guys to enjoy yourself. There will be prizes and incentives along the way to ensure your fun.
+      </p>
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="col-sm-6">
+
+      <form class="form" role="form" name="regForm" ng-submit="signUp()" novalidate>
+        
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert> 
+
+        <!-- Name -->
+        <div class="form-group" ng-class="{'has-error': regForm.name.$dirty && regForm.name.$invalide}">
+          <label for="name" class="control-label">Name:</label>
+          <input type="text"
+            id="name"
+            name="name"
+            ng-model="register.name"
+            ng-required="true"
+            class="form-control"
+            required>
+          <p ng-show="refForm.name.$dirty && regForm.name.$invalid" class="help-block" >Name is required.</p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group" ng-class="{'has-error':regForm.email.$dirty && regForm.email.$invalid}">
+          <label for="email" class="control-label">Email:</label>
+          <input type="email" 
+                  name="email"
+                  ng-model="register.email" 
+                  ng-required="true" 
+                  class="form-control" 
+                  id="email" 
+                  required>
+          <p ng-show="regForm.email.$error.email" class="help-block" >Email is invalid.</p>
+        </div>
+
+        <!-- Email Confirmation -->
+        <div class="form-group" ng-class="{'has-error':regForm.confirmEmail.$dirty && regForm.confirmEmail.$invalid}">
+          <label for="confirm-email" class="control-label">Confirm Email:</label>
+          <input type="email" 
+                 name="confirmEmail"
+                 ng-model="register.confirmEmail" 
+                 ng-required="true" 
+                 ng-match="regForm.email"
+                 class="form-control" 
+                 id="confirm-email" 
+                 required>
+          <p ng-show="regForm.confirmEmail.$error.match" class="help-block" >Emails do not match.</p>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group" ng-class="{'has-error':regForm.password.$dirty && regForm.password.$invalid}">
+          <label for="password" class="control-label">Password</label>
+          <input type="password" 
+                 name="password"
+                 ng-minlength="8" 
+                 ng-model="register.password" 
+                 ng-required="true" 
+                 ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#&*?~\$])/"
+                 class="form-control" 
+                 id="password" 
+                 popover-title="Password Requirements"
+                 popover="
+                  8 characters in length.
+                  1 uppercase character.
+                  1 lowercase character.
+                  1 number.
+                  1 special character from the following: ! # $ * & ? ~."
+                  popover-trigger="focus"
+                 required>
+          <p ng-show="regForm.password.$dirty && regForm.password.$invalid" class="help-block" >Password is invalid.</p>
+        </div>
+
+        <!-- Password Confirmation -->
+        <div class="form-group" ng-class="{'has-error':regForm.confirmPassword.$dirty &&regForm.confirmPassword.$invalid}" >
+          <label for="confirm-password" class="control-label">Confirm Password</label>
+          <input type="password" 
+                 name="confirmPassword"
+                 ng-minlength="8" 
+                 ng-model="register.confirmPassword" 
+                 ng-required="true" 
+                 ng-match="regForm.password"
+                 class="form-control" 
+                 id="confirm-password" 
+                 required>
+          <p ng-show="regForm.confirmPassword.$error.match" class="help-block" >Passwords do not match.</p>
+        </div>
+        <button class="btn btn-primary" ng-class="{disabled:regForm.$invalid}" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>

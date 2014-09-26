@@ -1,0 +1,53 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.navbar {
+  margin-bottom: 55px;
+}
+
+.carousel-inner{
+  width:100%;
+  max-height: 300px !important;
+}
+
+.carousel-inner img {
+  width: auto;
+  height: 300px;
+  max-height: 300px;
+}
+
+.ng-leave { z-index: 9999; }
+.ng-enter { z-index: 8888; }
+
+div[ng-view].ng-enter {
+  -webkit-animation:fadeIn 0.5s both ease-in;
+  -moz-animation:fadeIn 0.5s both ease-in;
+  animation:fadeIn 0.5s both ease-in;    
+}
+
+.footer {
+  position: absolute;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+div#main .container {
+  padding-bottom: 20px;
+}
