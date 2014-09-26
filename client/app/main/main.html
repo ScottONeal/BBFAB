@@ -1,10 +1,18 @@
-<div class="hero-unit" style="padding:0; background: #777">
-<carousel interval="5000">
-    <slide ng-repeat="slide in slides" active="slide.active">
-      <img class="img-responsive" ng-src="{{slide.image}}" style="margin:auto;">
-    </slide>
-  </carousel>
-</div>
 <div class="container">
-  <p class="lead">Help our family's adoption by supporting a beard grower or becoming a beard grower yourself!</p>
+    <div class="row">
+        <div class="col-sm-8">
+            <p class="lead">Help our family's adoption by supporting a beard grower or becoming a beard grower yourself!</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Top Beard Growers</h3>
+            <carousel interval="5000">
+            <slide ng-repeat="slide in slides" active="slide.active">
+              <img class="img-responsive" ng-src="{{slide.image}}" style="margin:auto;">
+            </slide>
+          </carousel>
+        <p><hr /></p>
+        <a class="twitter-timeline" href="https://twitter.com/beardsforababy" data-widget-id="515515623615365120">Tweets by @beardsforababy</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    </div>
 </div>

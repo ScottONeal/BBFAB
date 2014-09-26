@@ -20,6 +20,7 @@ body {
 
 .carousel-inner{
   width:100%;
+  margin:auto;
   max-height: 300px !important;
 }
 
@@ -50,4 +51,12 @@ div[ng-view].ng-enter {
 
 div#main .container {
   padding-bottom: 20px;
+}
+
+.nav-item {  
+  cursor: pointer;
+}
+
+.twitter-timeline {
+  height: 400px;
 }
