@@ -135,7 +135,16 @@ angular.module('bbfabApp')
       isAdmin: function() {
         return currentUser.role === 'admin';
       },
-
+      
+      /**
+       * Check if user is a normal user
+       *
+       * @return {Boolean}
+       */
+      isUser: function() {
+        return currentUser.role === 'user'; 
+      },
+      
       /**
        * Get auth token
        */

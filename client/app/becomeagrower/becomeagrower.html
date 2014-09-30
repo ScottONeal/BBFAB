@@ -29,9 +29,11 @@
   <div class="row"> 
     <div class="col-sm-6">
 
-      <form class="form" role="form" name="regForm" ng-submit="signUp()" novalidate>
+      <form class="form" role="form" name="regForm" ng-submit="register(regForm)" novalidate>
         
-        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert> 
+        <p class="help-block" ng-show="form.password.$error.mongoose">
+          {{ errors.password }}
+        </p>
 
         <!-- Name -->
         <div class="form-group" ng-class="{'has-error': regForm.name.$dirty && regForm.name.$invalide}">
@@ -39,7 +41,8 @@
           <input type="text"
             id="name"
             name="name"
-            ng-model="register.name"
+            ng-minlength="3"
+            ng-model="user.name"
             ng-required="true"
             class="form-control"
             required>
@@ -51,7 +54,7 @@
           <label for="email" class="control-label">Email:</label>
           <input type="email" 
                   name="email"
-                  ng-model="register.email" 
+                  ng-model="user.email" 
                   ng-required="true" 
                   class="form-control" 
                   id="email" 
@@ -64,7 +67,7 @@
           <label for="confirm-email" class="control-label">Confirm Email:</label>
           <input type="email" 
                  name="confirmEmail"
-                 ng-model="register.confirmEmail" 
+                 ng-model="user.confirmEmail" 
                  ng-required="true" 
                  ng-match="regForm.email"
                  class="form-control" 
@@ -79,7 +82,7 @@
           <input type="password" 
                  name="password"
                  ng-minlength="8" 
-                 ng-model="register.password" 
+                 ng-model="user.password" 
                  ng-required="true" 
                  ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#&*?~\$])/"
                  class="form-control" 
@@ -102,7 +105,7 @@
           <input type="password" 
                  name="confirmPassword"
                  ng-minlength="8" 
-                 ng-model="register.confirmPassword" 
+                 ng-model="user.confirmPassword" 
                  ng-required="true" 
                  ng-match="regForm.password"
                  class="form-control" 
@@ -110,7 +113,7 @@
                  required>
           <p ng-show="regForm.confirmPassword.$error.match" class="help-block" >Passwords do not match.</p>
         </div>
-        <button class="btn btn-primary" ng-class="{disabled:regForm.$invalid}" type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-class="{disabled:regForm.$invalid}" ng-click="register(form)" type="submit">Submit</button>
       </form>
     </div>
   </div>

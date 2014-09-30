@@ -24,6 +24,7 @@ angular.module('bbfabApp')
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
+    $scope.isUser = Auth.isUser;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
     $scope.goto = function(path) {
