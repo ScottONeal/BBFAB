@@ -80,6 +80,17 @@ exports.changePassword = function(req, res, next) {
 };
 
 /**
+ *  Get a simple list of all of the users/beardgrowers
+ */
+exports.growers = function( req, res, next ) {
+  User.find({role: 'user'}, function( err, users ) {
+    if(err) return res.send(500, err);
+    res.json(200, users.profile);
+  });
+  
+};
+
+/**
  * Get my info
  */
 exports.me = function(req, res, next) {

@@ -11,6 +11,9 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  picture: String,
+  location: String,
+  donationsRaised: Number,
   hashedPassword: String,
   provider: String,
   salt: String
@@ -36,7 +39,10 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role
+      'role': this.role,
+      'location': this.location,
+      'donationsRaised': this.donationsRaised,
+      'picture': this.picture
     };
   });
 
