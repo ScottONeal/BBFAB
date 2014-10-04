@@ -34,9 +34,25 @@ body {
 .ng-enter { z-index: 8888; }
 
 div[ng-view].ng-enter {
-  -webkit-animation:fadeIn 0.5s both ease-in;
-  -moz-animation:fadeIn 0.5s both ease-in;
-  animation:fadeIn 0.5s both ease-in;    
+  -webkit-animation:fadeIn 0.5s;
+  -moz-animation:fadeIn 0.5s;
+  animation:fadeIn 0.5s;    
+}
+
+.slide-in.ng-hide-remove {
+  display: block !important;  
+}
+
+.slide-in.ng-hide-remove {
+  -webkit-animation:fadeInRight 1s;
+  -moz-animation:fadeInRight 1s;
+  animation:fadeInRight 1s;
+}
+
+.nav-item:hover {
+  -webkit-animation:pulse 0.25s;
+  -moz-animation:pulse 0.25s;
+  animation:pulse 0.25s;
 }
 
 .footer {

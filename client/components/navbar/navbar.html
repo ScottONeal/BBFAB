@@ -16,16 +16,16 @@
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a class="nav-item" ng-click="goto(item.link)">{{item.title}}</a>
+            <a class="nav-item" ng-class="{'collapsed': isCollapsed}" ng-click="goto(item.link)">{{item.title}}</a>
         </li>
-        <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+        <li class="nav-item" ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="" ng-click="goto('/login')">Login</a></li>
-        <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="" ng-click="goto('/settings')"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+        <li class="nav-item" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="" ng-click="goto('/login')">Login</a></li>
+        <li class="nav-item" ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
+        <li class="nav-item" ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="" ng-click="goto('/settings')"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li class="nav-item" ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
