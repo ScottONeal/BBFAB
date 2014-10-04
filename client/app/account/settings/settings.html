@@ -3,11 +3,38 @@
   <!-- Upload Profile Picture -->
   <div class="row">
     <div class="col-sm-12">
-      <h1>Profile Picture</h1> 
+      <h1>Profile</h1> 
     </div>
-    <div class="col-sm-6">
-      Upload Profile Picture
-      <input type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null" accept="image/*">
+  </div>
+  <div class="row">
+    <div class="col-sm-12" ng-if="user.picture || uploadSuccess">
+      <img class="img-responsive img-rounded profile-picture-settings" ng-src="/assets/images/growers/{{ user.picture }}" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6" ng-hide="badbrowser">
+      <form class=".form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">Upload Profile Picture</div>
+            <input class="form-control" type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null" accept="image/*">
+          </div>
+          <p class="text-danger" ng-show="fileTooLarge">Your file is too large. Please upload an image less than 500kb. Sorry! ~Scott</p>
+          <p class="text-danger" ng-show="wrongFileType">File type must be a png or jpeg. Geez!</p>
+          <div ng-show="uploading">
+          <div class="progress" ng-show="progress">
+              Uploading..
+              <div class="progress-bar" style="{{ 'width: ' + progress }}">
+                {{ progress }}%
+              </div>
+            </div>
+          </div>
+          <p ng-show="uploadSuccess" class="text-success"><strong>Upload Success, you're awesome!</strong></p>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6" ng-show="badbrowser">
+      <h3 class="text-danger">Unable to upload file because you are using a old browser. Get Google Chrome already!</h3>
     </div>
   </div>
   

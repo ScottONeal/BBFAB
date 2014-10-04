@@ -6,6 +6,8 @@ var config   = require('../../config/environment');
 var jwt      = require('jsonwebtoken');
 var _        = require('lodash');
 var path     = require('path');
+var util     = require('util');
+var fs       = require('fs');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -83,16 +85,27 @@ exports.changePassword = function(req, res, next) {
 
 exports.upload = function(req, res, next) {
   
+  console.log(util.inspect(req.files.file, {depth: 2, colors: true}));
   var data = _.pick(req.body, 'type'),
       uploadPath = path.normalize('./client/assets/images/growers'),
       file = req.files.file;
       
   User.findById(req.user._id, function(err, user) {
     if (err) return validationError(res, err);
-    user.picture = file;
+    
+    var extension = file.path.split('.').pop();
+    
+    console.log("Extension: " + extension);
+    console.log("Location:  " + './client/assets/images/growers/'+user._id+'.'+extension);
+    fs.rename(file.path, './client/assets/images/growers/'+user._id+'.'+extension, function(err){
+      if (err) return res.send(500, err);
+      console.log("Move Complete");
+    });
+    
+    user.picture = user._id + '.' + extension;
     user.save(function(err){
       if (err) return validationError(res, err);
-      res.send(200);
+      res.send(200, { picture: user.picture });
     })
   });
   

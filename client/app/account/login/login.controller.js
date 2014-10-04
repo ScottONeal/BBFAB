@@ -15,7 +15,7 @@ angular.module('bbfabApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/settings');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

@@ -55,6 +55,20 @@ div[ng-view].ng-enter {
   animation:pulse 0.25s;
 }
 
+.top-buffer {
+  margin-top: 20px;
+}
+
+.profile-picture {
+  max-height: 200px;
+}
+
+.profile-picture-settings {
+  max-height: 200px;
+  margin: 15px;
+  margin-left: 0px;
+}
+
 .footer {
   position: absolute;
   padding: 20px;
