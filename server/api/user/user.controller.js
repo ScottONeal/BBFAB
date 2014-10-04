@@ -1,9 +1,11 @@
 'use strict';
 
-var User = require('./user.model');
+var User     = require('./user.model');
 var passport = require('passport');
-var config = require('../../config/environment');
-var jwt = require('jsonwebtoken');
+var config   = require('../../config/environment');
+var jwt      = require('jsonwebtoken');
+var _        = require('lodash');
+var path     = require('path');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -79,13 +81,19 @@ exports.changePassword = function(req, res, next) {
   });
 };
 
-/**
- *  Get a simple list of all of the users/beardgrowers
- */
-exports.growers = function( req, res, next ) {
-  User.find({role: 'user'}, function( err, users ) {
-    if(err) return res.send(500, err);
-    res.json(200, users.profile);
+exports.upload = function(req, res, next) {
+  
+  var data = _.pick(req.body, 'type'),
+      uploadPath = path.normalize('./client/assets/images/growers'),
+      file = req.files.file;
+      
+  User.findById(req.user._id, function(err, user) {
+    if (err) return validationError(res, err);
+    user.picture = file;
+    user.save(function(err){
+      if (err) return validationError(res, err);
+      res.send(200);
+    })
   });
   
 };

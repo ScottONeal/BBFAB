@@ -7,6 +7,7 @@ angular.module('bbfabApp', [
   'ngRoute',
   'ngAnimate',
   'ui.bootstrap',
+  'angularFileUpload',
   'timer'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
