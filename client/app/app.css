@@ -63,6 +63,10 @@ div[ng-view].ng-enter {
   max-height: 200px;
 }
 
+.profile-picture-absent {
+  font-size: 100pt; 
+}
+
 .profile-picture-settings {
   max-height: 200px;
   margin: 15px;

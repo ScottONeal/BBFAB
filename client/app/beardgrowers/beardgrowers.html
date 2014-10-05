@@ -1,16 +1,17 @@
 <div class="container">
-  <p style="margin-bottom: 20px">
-    <span class="h1">Our Beard Growers</span><br />
-    <span class="h3"><small>Give them a highfive when you see them!</small></span>
+  <p class="text-center" style="margin-bottom: 20px">
+    <span class="h1" style="font-size: 65px">Our Beard Growers</span><br />
+    <span class="h3" style="font-size: 35px"><small>Give them a highfive when you see them!</small></span>
+    <hr />
   </p>
   <div class="row top-buffer" ng-repeat="grower in growers">
-    <div class="col-sm-4">
-      <img ng-show="grower.picture" class="img-responsive img-rounded profile-picture" ng-src="/assets/images/growers/{{ grower.picture}}" />
-      <span ng-hide="grower.picture">
-        <span class="glyphicon glyphicon-user"></span>
+    <div class="col-sm-6 col-xs-12">
+      <img ng-show="grower.picture" class="img-responsive img-rounded profile-picture pull-right" ng-src="/assets/images/growers/{{ grower.picture}}" />
+      <span ng-hide="grower.picture" class="profile-picture-absent">
+        <span class="glyphicon glyphicon-user pull-right"></span>
       </span>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6 col-xs-12">
       <span class="h2">{{ grower.name }}</span>
       <p>{{ grower.location }}</p><a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Support</a>
     </div>
