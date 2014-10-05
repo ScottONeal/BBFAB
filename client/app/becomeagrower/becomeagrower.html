@@ -29,14 +29,14 @@
   <div class="row"> 
     <div class="col-sm-6">
 
-      <form class="form" role="form" name="regForm" ng-submit="register(regForm)" novalidate>
+      <form class="form" role="form" name="form" ng-submit="register(form)" novalidate>
         
         <p class="help-block" ng-show="form.password.$error.mongoose">
           {{ errors.password }}
         </p>
 
         <!-- Name -->
-        <div class="form-group" ng-class="{'has-error': regForm.name.$dirty && regForm.name.$invalide}">
+        <div class="form-group" ng-class="{'has-error': form.name.$dirty && form.name.$invalide}">
           <label for="name" class="control-label">Name:</label>
           <input type="text"
             id="name"
@@ -46,11 +46,11 @@
             ng-required="true"
             class="form-control"
             required>
-          <p ng-show="refForm.name.$dirty && regForm.name.$invalid" class="help-block" >Name is required.</p>
+          <p ng-show="refForm.name.$dirty && form.name.$invalid" class="help-block" >Name is required.</p>
         </div>
 
         <!-- Email -->
-        <div class="form-group" ng-class="{'has-error':regForm.email.$dirty && regForm.email.$invalid}">
+        <div class="form-group" ng-class="{'has-error':form.email.$dirty && form.email.$invalid}">
           <label for="email" class="control-label">Email:</label>
           <input type="email" 
                   name="email"
@@ -59,25 +59,25 @@
                   class="form-control" 
                   id="email" 
                   required>
-          <p ng-show="regForm.email.$error.email" class="help-block" >Email is invalid.</p>
+          <p ng-show="form.email.$error.email" class="help-block" >Email is invalid.</p>
         </div>
 
         <!-- Email Confirmation -->
-        <div class="form-group" ng-class="{'has-error':regForm.confirmEmail.$dirty && regForm.confirmEmail.$invalid}">
+        <div class="form-group" ng-class="{'has-error':form.confirmEmail.$dirty && form.confirmEmail.$invalid}">
           <label for="confirm-email" class="control-label">Confirm Email:</label>
           <input type="email" 
                  name="confirmEmail"
                  ng-model="user.confirmEmail" 
                  ng-required="true" 
-                 ng-match="regForm.email"
+                 ng-match="form.email"
                  class="form-control" 
                  id="confirm-email" 
                  required>
-          <p ng-show="regForm.confirmEmail.$error.match" class="help-block" >Emails do not match.</p>
+          <p ng-show="form.confirmEmail.$error.match" class="help-block" >Emails do not match.</p>
         </div>
 
         <!-- Password -->
-        <div class="form-group" ng-class="{'has-error':regForm.password.$dirty && regForm.password.$invalid}">
+        <div class="form-group" ng-class="{'has-error':form.password.$dirty && form.password.$invalid}">
           <label for="password" class="control-label">Password</label>
           <input type="password" 
                  name="password"
@@ -96,24 +96,24 @@
                   1 special character from the following: ! # $ * & ? ~."
                   popover-trigger="focus"
                  required>
-          <p ng-show="regForm.password.$dirty && regForm.password.$invalid" class="help-block" >Password is invalid.</p>
+          <p ng-show="form.password.$dirty && form.password.$invalid" class="help-block" >Password is invalid.</p>
         </div>
 
         <!-- Password Confirmation -->
-        <div class="form-group" ng-class="{'has-error':regForm.confirmPassword.$dirty &&regForm.confirmPassword.$invalid}" >
+        <div class="form-group" ng-class="{'has-error':form.confirmPassword.$dirty &&form.confirmPassword.$invalid}" >
           <label for="confirm-password" class="control-label">Confirm Password</label>
           <input type="password" 
                  name="confirmPassword"
                  ng-minlength="8" 
                  ng-model="user.confirmPassword" 
                  ng-required="true" 
-                 ng-match="regForm.password"
+                 ng-match="form.password"
                  class="form-control" 
                  id="confirm-password" 
                  required>
-          <p ng-show="regForm.confirmPassword.$error.match" class="help-block" >Passwords do not match.</p>
+          <p ng-show="form.confirmPassword.$error.match" class="help-block" >Passwords do not match.</p>
         </div>
-        <button type="submit" class="btn btn-primary" ng-class="{disabled:regForm.$invalid}" ng-click="register(form)" type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-class="{disabled:form.$invalid}" type="submit">Submit</button>
       </form>
     </div>
   </div>

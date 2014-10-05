@@ -14,6 +14,7 @@
     <div class="col-sm-6 col-xs-12">
       <span class="h2">{{ grower.name }}</span>
       <p>{{ grower.city + ',&nbsp'}}{{ grower.state}}</p>
+      <p>Raised: <strong>{{ grower.raised || '$0' }}</strong></p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_xclick">
         <input type="hidden" name="business" value="KWQM85LPRDEA8">
@@ -25,7 +26,7 @@
         <table>
         <tr><td><input type="hidden" name="on0" value="Grower:"></td></tr><tr><td><input type="hidden" name="os0" maxlength="200" value="{{ grower.name }}"></td></tr>
         </table>
-        <input type="submit" value="{{ 'Support ' + grower.name +'\'s beard!'}}" class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <input type="submit" value="{{ 'Support ' + grower.name +'\'s Beard!'}}" class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
       </form>
       <p style="margin-top:15px">{{ grower.mungedBio }}</p>
 
