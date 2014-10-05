@@ -73,6 +73,21 @@ div[ng-view].ng-enter {
   margin-left: 0px;
 }
 
+.grower-anim  {
+  -webkit-animation:fadeInUp 1.25s;
+  -moz-animation:fadeInUp 1.25s;
+  animation:fadeInUp 1.25s;
+}
+
+.grower-anim.ng-enter,
+.grower-anim.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.grower-anim.ng-leave,
+.grower-anim.ng-enter.ng-enter-active {
+  opacity:1;
+}
 .footer {
   position: absolute;
   padding: 20px;
