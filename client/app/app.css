@@ -60,7 +60,7 @@ div[ng-view].ng-enter {
 }
 
 .profile-picture {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .profile-picture-absent {

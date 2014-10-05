@@ -10,8 +10,12 @@
 angular.module('bbfabApp')
   .controller('BeardGrowersCtrl', function ($scope, $http) {
     $http.get('/api/growers')
-      .success(function(data) {
-        $scope.growers = data;       
+      .success(function(growers) {
+        angular.forEach(growers, function(grower){
+          grower.mungedBio = grower.bio.length > 150 ? grower.bio.substring(0, 150) + '...' : grower.bio;
+        });
+          
+        $scope.growers = growers;       
       })
       .error(function(data, status) {
         $scope.error = data;

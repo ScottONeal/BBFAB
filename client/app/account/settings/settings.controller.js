@@ -45,6 +45,18 @@ angular.module('bbfabApp')
 				$scope.uploadSuccess = true;
 			});
 		};
+		
+		$scope.saveProfile = function(form) {
+			if ( form.$valid ) {
+				Auth.saveProfile(	user )
+					.then( function() {
+						$scope.profileMessage = 'Profile Information Saved';	
+					})
+					.catch( function() {
+						$scope.profileError = 'There was a problem saving your information';
+					});
+			}
+		}
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;

@@ -91,6 +91,26 @@ angular.module('bbfabApp')
           return cb(err);
         }).$promise;
       },
+      
+      /**
+       * Saves profile info
+       *
+       * @param {Object} Object with city,state, and bio
+       * @return {Promise}
+       */
+      saveProfile: function(profile, callback) {
+        var cb = callback || angular.noop;
+        
+        return User.saveProfile({ id: currentUser._id }, {
+          city: profile.city || '',
+          state: profile.state || '',
+          bio: profile.bio || ''
+        }, function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
+      },
 
       /**
        * Gets all available info on authenticated user

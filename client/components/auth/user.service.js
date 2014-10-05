@@ -12,6 +12,12 @@ angular.module('bbfabApp')
           controller:'password'
         }
       },
+			saveProfile: {
+				method: 'Post',
+				params: {
+					controller: 'profile'
+				}
+			},
       get: {
         method: 'GET',
         params: {

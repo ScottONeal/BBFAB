@@ -37,7 +37,30 @@
       <h3 class="text-danger">Unable to upload file because you are using a old browser. Get Google Chrome already!</h3>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <form class="form" name="profileForm" ng-submit="saveProfile(profileForm)" novalid>
+          <div class="form-group">
+            <label>City:</label>
+            <input type="text" name="city" maxlength="30" class="form-control" ng-model="user.city" mongoose-error>
+          </div> 
+          <div class="form-group">
+            <label>State:</label>
+            <input type="text" name="state" style="width: 60px" maxlength="2" size="2" class="form-control" ng-model="user.state" mongoose-error>
+          </div>
+          <div class="form-group">
+            <label>Bio:</label>
+            <textarea ng-model="user.bio" class="form-control" rows="3" maxlength="2000" mongoose-error></textarea>
+            <small>2000 character max</small>
+          </div>
+          
+          <button class="btn btn-lg btn-primary" type="submit">Save</button>
+          
+        </form>
+    </div> 
+  </div>
   
+  <hr />
   <!-- Change Password -->
   <div class="row">
     <div class="col-sm-12">
