@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <img ng-if="grower.picture" class="img-responsive img-rounded profile-picture" ng-src="/assets/images/growers/{{ grower.picture}}" />
+      <span ng-hide="grower.picture" class="profile-picture-absent">
+        <span class="glyphicon glyphicon-user"></span>
+      </span>
+    </div>
+    <div class="col-sm-6">
+      <h1>{{ grower.name }}</h1>
+      <div class="profile-prop"><strong>Location:</strong></div>{{ grower.city || 'Not Selected' }}, {{ grower.state || 'NA' }}<br />
+      <div class="profile-prop"><strong>Raised:</strong></div>{{ grower.raised || 0 | currency }}<br />
+      <div class="progress top-buffer text-center">
+        <div class="progress-bar progress-bar-success" style="{{ 'width:' + progress + '%;' }}">{{ progress }}%</i></div>
+        {{ left }}%
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <hr />
+      <h3>Bio</h3>
+      <p>
+        {{ grower.bio || 'No Bio Provided...' }} 
+      </p>
+    </div> 
+  </div>
+</div>

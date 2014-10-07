@@ -69,14 +69,37 @@ div[ng-view].ng-enter {
   max-height: 300px;
 }
 
+.profile-picture:hover {
+  cursor: pointer;
+}
+
 .profile-picture-absent {
-  font-size: 110pt; 
+  font-size: 110pt;
+  color: #333;
+}
+
+.profile-picture-absent:hover {
+  cursor: pointer;
 }
 
 .profile-picture-settings {
   max-height: 200px;
   margin: 15px;
   margin-left: 0px;
+}
+
+div.profile-prop {
+  display: inline-block;
+  width: 100px;
+}
+
+div.progress-bar {
+  color: #444;
+}
+
+div.progress-left {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .grower-anim  {

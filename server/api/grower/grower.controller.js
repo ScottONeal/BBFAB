@@ -16,6 +16,17 @@ exports.index = function(req, res) {
   });
 };
 
+/**
+ * Get a single grower from ID
+ */
+exports.single = function(req, res) {
+  console.log("ID: "+req.param("id"));
+  User.findById(req.param("id"), fieldsList, function(err, grower) {
+    if (err) handleError(res, err);
+    res.send(200, grower);
+  });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

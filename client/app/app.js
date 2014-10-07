@@ -26,7 +26,21 @@ angular.module('bbfabApp', [
       })
       .when('/beardgrowers', {
         templateUrl: 'app/beardgrowers/beardgrowers.html',
-        controller: 'BeardGrowersCtrl'
+        controller: 'BeardGrowersCtrl',
+        resolve: {
+          growers: function($http) {
+            return $http.get('/api/growers');
+          }
+        }
+      })
+      .when('/grower/:id', {
+        templateUrl: 'app/grower/grower.html',
+        controller: 'GrowerCtrl',
+        resolve: {
+          grower: function($route, $http) {
+            return $http.get('/api/growers/'+$route.current.params.id);
+          }
+        }
       })
       .when('/support', {
         templateUrl: 'app/support/support.html',

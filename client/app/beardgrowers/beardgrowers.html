@@ -6,13 +6,15 @@
   </p>
   <div class="row top-buffer grower-anim" ng-repeat="grower in growers">
     <div class="col-sm-6 col-xs-12">
-      <img ng-if="grower.picture" class="img-responsive img-rounded profile-picture pull-right" ng-src="/assets/images/growers/{{ grower.picture}}" />
-      <span ng-hide="grower.picture" class="profile-picture-absent">
-        <span class="glyphicon glyphicon-user pull-right"></span>
-      </span>
+      <a ng-click="gotoGrower(grower)">
+        <img ng-if="grower.picture" class="img-responsive img-rounded profile-picture pull-right" ng-src="/assets/images/growers/{{ grower.picture}}" />
+        <span ng-hide="grower.picture" class="profile-picture-absent">
+          <span class="glyphicon glyphicon-user pull-right"></span>
+        </span>
+      </a>
     </div>
     <div class="col-sm-6 col-xs-12">
-      <span class="h2">{{ grower.name }}</span>
+      <span class="h2" ng-click="gotoGrower(grower)">{{ grower.name }}</span>
       <p>{{ grower.city + ',&nbsp'}}{{ grower.state}}</p>
       <p>Raised: <strong>{{ grower.raised || '$0' | currency }}</strong></p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
