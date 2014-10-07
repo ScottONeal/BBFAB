@@ -18,6 +18,12 @@ body {
   margin-bottom: 55px;
 }
 
+.logo {
+  max-height: 100px;
+  max-width: 100px;
+  margin-top: -15px;
+}
+
 .carousel-inner{
   width:100%;
   margin:auto;
