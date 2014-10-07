@@ -12,7 +12,9 @@ angular.module('bbfabApp')
     $http.get('/api/growers')
       .success(function(growers) {
         angular.forEach(growers, function(grower){
-          grower.mungedBio = grower.bio.length > 150 ? grower.bio.substring(0, 150) + '...' : grower.bio;
+          if ( grower.bio ) {
+            grower.mungedBio = grower.bio.length > 150 ? grower.bio.substring(0, 150) + '...' : grower.bio;
+          }
         });
           
         $scope.growers = growers;       
