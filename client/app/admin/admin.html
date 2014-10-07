@@ -1,10 +1,37 @@
 
 <div class="container">
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="user in users">
-        <strong>{{user.name}}</strong><br>
-        <span class="text-muted">{{user.email}}</span>
-        <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
-    </li>
-  </ul>
+  <alert class="alert" type="success" close="closeMessage()" ng-show="message">
+    {{ message }}
+  </alert>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Raised</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users | filter:'user'">
+        <td>
+          <strong>{{user.name}}</strong>
+        </td>
+        <td>
+          <a href="{{ 'mailto:' + user.email }}" target="_blank" class="text-muted">{{user.email}}</span>
+        </td>
+        <td>
+          <form class="form-inline" name="form" ng-submit="updateRaised(user)">
+            <div class="form-group">
+              <input class="form-control raised-input" type="number" ng-model="user.raised">
+            </div>
+              <input type="submit" value="save" class="btn btn-primary">
+          </form>
+        </td>
+        <td>
+          <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash text-center"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

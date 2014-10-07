@@ -5,6 +5,7 @@ angular.module('bbfabApp')
     $scope.errors = {};
 		
 		var user = $scope.user = User.get();
+		$scope.isAdmin = Auth.isAdmin();
 			
 		if ( 	window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false) ) {
 			$scope.badbrowers = true;

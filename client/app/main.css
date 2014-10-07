@@ -119,7 +119,13 @@ div#main .container {
 .countdown {
   width: 100%;
   padding:20px;
-  font-size: 20pt;
   color: #FFF;
   background-color: #555;
+}
+.countdown-timer {
+  font-size: 10pt;
+}
+
+.raised-input {
+  width: 100px !important; 
 }

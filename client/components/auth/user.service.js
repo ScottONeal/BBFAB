@@ -13,7 +13,7 @@ angular.module('bbfabApp')
         }
       },
 			saveProfile: {
-				method: 'Post',
+				method: 'POST',
 				params: {
 					controller: 'profile'
 				}

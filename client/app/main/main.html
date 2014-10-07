@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-9">
             <h1>Big Beards for a Baby</h1>
             <p>Friends and Family,</p>
             
@@ -34,14 +34,14 @@
                 <strong>- The Barker Family</strong>
             </p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div ng-show="countdown" class="slide-in">
-                <h3>Commence Growing In:</h3>
-                <h4><timer end-time="1414814400000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer></h4>
+                <h4>Commence Growing In:</h4>
+                <span class="countdown-timer"><timer end-time="1414814400000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer></span>
             </div>
             
             <!-- Instagram Feed -->
-            <div ng-show="instagram" class="slide-in">
+            <div ng-show="instagram" class="slide-in top-buffer">
                 <iframe src="http://snapwidget.com/sc/?h=YmlnYmVhcmRzZm9yYWJhYnl8aW58MzAwfDN8M3x8bm98NXxub25lfG9uU3RhcnR8eWVzfG5v&ve=041014" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:300px"></iframe>
             </div>
             

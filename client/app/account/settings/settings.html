@@ -1,17 +1,17 @@
 <div class="container">
   
   <!-- Upload Profile Picture -->
-  <div class="row">
+  <div class="row" ng-hide="isAdmin">
     <div class="col-sm-12">
       <h1>Profile</h1> 
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-hide="isAdmin">
     <div class="col-sm-12" ng-if="user.picture || uploadSuccess">
       <img class="img-responsive img-rounded profile-picture-settings" ng-src="/assets/images/growers/{{ user.picture }}" />
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-hide="isAdmin">
     <div class="col-sm-6" ng-hide="badbrowser">
       <form class=".form-inline">
         <div class="form-group">
@@ -37,7 +37,7 @@
       <h3 class="text-danger">Unable to upload file because you are using a old browser. Get Google Chrome already!</h3>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-hide="isAdmin">
     <div class="col-sm-6 col-xs-12">
         <form class="form" name="profileForm" ng-submit="saveProfile(profileForm)" novalid>
           <div class="form-group">

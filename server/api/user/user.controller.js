@@ -63,6 +63,25 @@ exports.destroy = function(req, res) {
 };
 
 /**
+ * Updates a users
+ * restriction: 'admin'
+ */
+exports.updateRaised = function(req, res, next) {
+  var userId = req.body.id;
+  var raised = req.body.raised;
+  
+  console.log("RAISED: "+raised);
+  User.findById(userId, function (err, user) {
+    if (err) return validationError(res, err);
+    user.raised = raised;
+    user.save(function(err) {
+      if (err) return validationError(res, err);
+      res.send(200);
+    });
+  });
+};
+
+/**
  * Change a users password
  */
 exports.changePassword = function(req, res, next) {
