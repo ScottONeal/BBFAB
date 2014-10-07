@@ -31,6 +31,10 @@ angular.module('bbfabApp', [
       .when('/support', {
         templateUrl: 'app/support/support.html',
         controller: 'SupportCtrl'
+      })
+      .when('/thankyou', {
+        templateUrl: 'app/thankyou/thankyou.html',
+        controller: 'ThankyouCtrl'
       });
 
     $locationProvider.html5Mode(true);
