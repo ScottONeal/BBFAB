@@ -14,8 +14,10 @@ angular.module('bbfabApp')
 		$scope.messages = [];
 		
 		$q.when(user.$promise).then(function(cuser){
-			if ( !cuser.picture || !cuser.city || !cuser.state || !cuser.bio ) {
-				$scope.messages.push({ message: 'Your profile is not yet complete. Please fill it out, thanks!', type: 'info'})
+			if ( cuser.role == 'user' ) {
+				if ( !cuser.picture || !cuser.city || !cuser.state || !cuser.bio ) {
+					$scope.messages.push({ message: 'Your profile is not yet complete. Please fill it out, thanks!', type: 'info'})
+				}
 			}
 		});
 		

@@ -13,6 +13,6 @@ angular.module('bbfabApp')
     grower = $scope.grower = grower.data;
     grower.raised |= 0;
     $scope.progress = ~~( (grower.raised / 600) * 100 );
-    $scope.left = 100 - $scope.progress;
+    $scope.left = $scope.progress ? 100 - $scope.progress : false;
     
   });

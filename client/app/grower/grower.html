@@ -12,7 +12,7 @@
       <div class="profile-prop"><strong>Raised:</strong></div>{{ grower.raised || 0 | currency }}<br />
       <div class="progress top-buffer text-center">
         <div class="progress-bar progress-bar-success" style="{{ 'width:' + progress + '%;' }}">{{ progress }}%</i></div>
-        {{ left }}%
+        <span ng-if="left">{{ left }}%</span>
       </div>
     </div>
   </div>
