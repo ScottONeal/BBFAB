@@ -11,7 +11,7 @@ var fieldsList = 'name city state bio picture raised';
  */
 exports.index = function(req, res) {
   User.find({role: 'user'}, fieldsList, function( err, users ) {
-    if(err) return hangleError(res, err);
+    if(err) return handleError(res, err);
     return res.json(200, users);
   });
 };
