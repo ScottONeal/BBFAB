@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bbfabApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth, $upload) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $upload, $q) {
     $scope.errors = {};
 		
 		var user = $scope.user = User.get();
@@ -10,6 +10,14 @@ angular.module('bbfabApp')
 		if ( 	window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false) ) {
 			$scope.badbrowers = true;
 		}
+		
+		$scope.messages = [];
+		
+		$q.when(user.$promise).then(function(cuser){
+			if ( !cuser.picture || !cuser.city || !cuser.state || !cuser.bio ) {
+				$scope.messages.push({ message: 'Your profile is not yet complete. Please fill it out, thanks!', type: 'info'})
+			}
+		});
 		
 		$scope.onFileSelect = function(files) {
 			
@@ -51,13 +59,17 @@ angular.module('bbfabApp')
 			if ( form.$valid ) {
 				Auth.saveProfile(	user )
 					.then( function() {
-						$scope.profileMessage = 'Profile Information Saved';	
+						$scope.messages.push({ message: 'Profile Information Saved', type: 'success'});	
 					})
 					.catch( function() {
-						$scope.profileError = 'There was a problem saving your information';
+						$scope.message.push({message: 'There was a problem saving your information', type: 'danger'});
 					});
 			}
 		}
+		
+		$scope.closeMessage = function(index) {
+			$scope.messages.splice(index, 1);
+		};
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;

@@ -22,8 +22,8 @@ angular.module('bbfabApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Account created, redirect to home
-          $location.path('/');
+          // Account created, redirect to settings
+          $location.path('/settings');
         })
         .catch( function(err) {
           err = err.data;

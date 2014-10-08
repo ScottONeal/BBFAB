@@ -1,11 +1,14 @@
 <div class="container">
   
-  <!-- Upload Profile Picture -->
   <div class="row" ng-hide="isAdmin">
     <div class="col-sm-12">
-      <h1>Profile</h1> 
+      <h1>Profile</h1>
+      <alert type="{{ message.type }}" ng-repeat="message in messages" close="closeMessage($index)">
+        {{message.message}}
+      </alert>
     </div>
   </div>
+  <!-- Upload Profile Picture -->
   <div class="row" ng-hide="isAdmin">
     <div class="col-sm-12" ng-if="user.picture || uploadSuccess">
       <img class="img-responsive img-rounded profile-picture-settings" ng-src="/assets/images/growers/{{ user.picture }}" />
