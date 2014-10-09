@@ -70,7 +70,6 @@ exports.updateRaised = function(req, res, next) {
   var userId = req.body.id;
   var raised = req.body.raised;
   
-  console.log("RAISED: "+raised);
   User.findById(userId, function (err, user) {
     if (err) return validationError(res, err);
     user.raised = raised;
@@ -125,7 +124,6 @@ exports.profile = function(req, res) {
 
 exports.upload = function(req, res, next) {
   
-  console.log(util.inspect(req.files.file, {depth: 2, colors: true}));
   var data = _.pick(req.body, 'type'),
       uploadPath = path.normalize('./client/assets/images/growers'),
       file = req.files.file;
@@ -133,13 +131,10 @@ exports.upload = function(req, res, next) {
   User.findById(req.user._id, function(err, user) {
     if (err) return validationError(res, err);
     
-    var extension = file.path.split('.').pop();
+    var extension = path.extname(file.path);
     
-    console.log("Extension: " + extension);
-    console.log("Location:  " + './client/assets/images/growers/'+user._id+'.'+extension);
-    fs.rename(file.path, './client/assets/images/growers/'+user._id+'.'+extension, function(err){
+    fs.rename(file.path, path.dirname(require.main.pathname) + '/client/assets/images/growers/'+user._id+'.'+extension, function(err){
       if (err) return res.send(500, err);
-      console.log("Move Complete");
     });
     
     user.picture = user._id + '.' + extension;
