@@ -69,7 +69,7 @@ exports.destroy = function(req, res) {
 exports.updateRaised = function(req, res, next) {
   var userId = req.body.id;
   var raised = req.body.raised;
-  
+
   User.findById(userId, function (err, user) {
     if (err) return validationError(res, err);
     user.raised = raised;
@@ -108,42 +108,42 @@ exports.profile = function(req, res) {
   var city  = String(req.body.city);
   var state = String(req.body.state);
   var bio   = String(req.body.bio);
-    
+
   User.findById(req.user._id, function (err, user) {
     if (err) return validationError(res, err);
     user.city = city.substring(0,30);
     user.state = state.substring(0,2);
     user.bio = bio.substring(0, 2000);
-    
+
     user.save(function(err){
       if (err) return validationError(res, err);
-      res.send(200); 
+      res.send(200);
     });
   });
 };
 
 exports.upload = function(req, res, next) {
-  
+
   var data = _.pick(req.body, 'type'),
-      uploadPath = path.normalize('./client/assets/images/growers'),
+      uploadPath = path.resolve(process.cwd()) + '/client/assets/images/growers/',
       file = req.files.file;
-      
+
   User.findById(req.user._id, function(err, user) {
     if (err) return validationError(res, err);
-    
+
     var extension = path.extname(file.path);
-    
-    fs.rename(file.path, path.dirname(require.main.pathname) + '/client/assets/images/growers/'+user._id+'.'+extension, function(err){
+
+    fs.rename(file.path, uploadPath+user._id+extension, function(err){
       if (err) return res.send(500, err);
     });
-    
-    user.picture = user._id + '.' + extension;
+
+    user.picture = user._id + extension;
     user.save(function(err){
       if (err) return validationError(res, err);
       res.send(200, { picture: user.picture });
     })
   });
-  
+
 };
 
 /**
