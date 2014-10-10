@@ -12,6 +12,8 @@ angular.module('bbfabApp')
     $scope.user = {};
     $scope.errors = {};
 
+    $scope.isLoggedIn = Auth.isLoggedIn();
+
     $scope.register = function(form) {
       $scope.submitted = true;
 
@@ -37,5 +39,5 @@ angular.module('bbfabApp')
         });
       }
     };
-    
+
   });
