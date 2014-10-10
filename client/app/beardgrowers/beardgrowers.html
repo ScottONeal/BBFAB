@@ -36,6 +36,9 @@
         </table>
         <input type="submit" value="{{ 'Support ' + grower.name +'\'s Beard!'}}" class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
       </form>
+      <p style="margin-top:10px">
+      <button class="btn btn-default" ng-click="gotoGrower(grower)">View Profile</button>
+      </p>
 
       <p style="margin-top:15px">{{ grower.mungedBio }}</p>
 
