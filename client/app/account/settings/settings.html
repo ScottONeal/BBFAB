@@ -41,26 +41,58 @@
     </div>
   </div>
   <div class="row" ng-hide="isAdmin">
-    <div class="col-sm-6 col-xs-12">
-        <form class="form" name="profileForm" ng-submit="saveProfile(profileForm)" novalid>
+      <form class="form" name="profileForm" ng-submit="saveProfile(profileForm)" novalid>
+        <div class="col-xs-8 col-sm-4">
           <div class="form-group">
             <label>City:</label>
             <input type="text" name="city" maxlength="30" class="form-control" ng-model="user.city" mongoose-error>
           </div> 
+        </div>
+        <div class="col-xs-4 col-sm-2">
           <div class="form-group">
             <label>State:</label>
             <input type="text" name="state" style="width: 60px" maxlength="2" size="2" class="form-control" ng-model="user.state" mongoose-error>
           </div>
+        </div>
+        <div class="col-xs-12"></div>
+        <div class="col-xs-6">
+          <p>
+            If you provide your instagram or twitter account, you photos and tweets with #bigbeardsforababy will come up on your profile page. Well, at least that's the plan, this feature has yet been implemented yet, if you want it out faster bug Scott.
+          </p>
+        </div>
+        <div class="col-xs-12"></div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="form-group">
+            <label>Twitter:</label>
+            <div class="input-group">
+              <div class="input-group-addon">@</div>
+              <input type="text" name="twitter" maxlength="50" size="2" class="form-control" ng-model="user.twitter" mongoose-error>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="form-group">
+            <label>Instagram:</label>
+            <div class="input-group">
+              <div class="input-group-addon">@</div>
+              <input type="text" name="instagram" maxlength="50" size="2" class="form-control" ng-model="user.instagram" mongoose-error>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12"></div>
+        <div class="col-xs-12 col-sm-6">
           <div class="form-group">
             <label>Bio:</label>
             <textarea ng-model="user.bio" class="form-control" rows="3" maxlength="2000" mongoose-error></textarea>
             <small>2000 character max</small>
           </div>
-          
+        </div>
+        
+        <div class="col-xs-12">
           <button class="btn btn-lg btn-primary" type="submit">Save</button>
-          
-        </form>
-    </div> 
+        </div>
+        
+      </form>
   </div>
   
   <hr />

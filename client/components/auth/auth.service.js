@@ -91,7 +91,7 @@ angular.module('bbfabApp')
           return cb(err);
         }).$promise;
       },
-      
+
       /**
        * Saves profile info
        *
@@ -100,11 +100,13 @@ angular.module('bbfabApp')
        */
       saveProfile: function(profile, callback) {
         var cb = callback || angular.noop;
-        
+
         return User.saveProfile({ id: currentUser._id }, {
           city: profile.city || '',
           state: profile.state || '',
-          bio: profile.bio || ''
+          bio: profile.bio || '',
+          twitter: profile.twitter || '',
+          instagram: profile.instagram || ''
         }, function(user) {
           return cb(user);
         }, function(err) {
@@ -155,16 +157,16 @@ angular.module('bbfabApp')
       isAdmin: function() {
         return currentUser.role === 'admin';
       },
-      
+
       /**
        * Check if user is a normal user
        *
        * @return {Boolean}
        */
       isUser: function() {
-        return currentUser.role === 'user'; 
+        return currentUser.role === 'user';
       },
-      
+
       /**
        * Get auth token
        */

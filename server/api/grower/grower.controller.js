@@ -4,7 +4,7 @@ var User = require('../user/user.model');
 var config = require('../../config/environment');
 
 // List of fields we only wanted selected when fetching a user
-var fieldsList = 'name city state bio picture raised';
+var fieldsList = 'name city state bio picture raised twitter instagram';
 
 /**
  * Get list of growers

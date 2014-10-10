@@ -105,15 +105,19 @@ exports.changePassword = function(req, res, next) {
  * Updates a user profile attributes
  */
 exports.profile = function(req, res) {
-  var city  = String(req.body.city);
-  var state = String(req.body.state);
-  var bio   = String(req.body.bio);
+  var city      = String(req.body.city),
+      state     = String(req.body.state),
+      bio       = String(req.body.bio),
+      twitter   = String(req.body.twitter),
+      instagram = String(req.body.instagram);
 
   User.findById(req.user._id, function (err, user) {
     if (err) return validationError(res, err);
     user.city = city.substring(0,30);
     user.state = state.substring(0,2);
     user.bio = bio.substring(0, 2000);
+    user.twitter = twitter.substring(0, 50);
+    user.instagram = instagram.substring(0, 50);
 
     user.save(function(err){
       if (err) return validationError(res, err);
