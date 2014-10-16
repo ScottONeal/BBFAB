@@ -129,7 +129,7 @@ exports.profile = function(req, res) {
 exports.upload = function(req, res, next) {
   
   var data = _.pick(req.body, 'type'),
-      uploadPath = path.resolve(process.cwd()) + '/' + process.env.NODE_ENV == 'production' ? 'public' : 'client' +'/assets/images/growers/',
+      uploadPath = path.resolve(process.cwd()) + '/' + process.env.NODE_ENV == 'development' ? 'client' : 'public' +'/assets/images/growers/',
       file = req.files.file;
 
   console.log(process.env.NODE_ENV || 'undefined');
