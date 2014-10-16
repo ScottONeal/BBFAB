@@ -152,3 +152,8 @@ div#main .container {
 .raised-input {
   width: 100px !important; 
 }
+
+.profile-badge {
+  font-size: 30pt;
+  margin-right: 15px;
+}

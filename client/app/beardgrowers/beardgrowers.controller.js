@@ -20,6 +20,7 @@ angular.module('bbfabApp')
       if ( grower.bio ) {
         grower.mungedBio = grower.bio.length > 150 ? grower.bio.substring(0, 150) + '...' : grower.bio;
       }
+      grower.raised |= 0;
     });
       
     $scope.growers = growers;       

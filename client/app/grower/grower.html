@@ -10,6 +10,8 @@
       <h1>{{ grower.name }}</h1>
       <div class="profile-prop"><strong>Location:</strong></div>{{ grower.city || 'Not Selected' }}, {{ grower.state || 'NA' }}<br />
       <div class="profile-prop"><strong>Raised:</strong></div>{{ grower.raised || 0 | currency }}<br />
+      <div class="profile-prop"><strong>Instagram:</strong></div><a ng-show="grower.instagram" href="{{'http://instagram.com/' + grower.instagram}}" target="_blank">@{{grower.instagram}}</a><br />
+      <div class="profile-prop"><strong>Twitter:</strong></div><a ng-show="grower.twitter" href="{{'http://twitter.com/' + grower.twitter}}" target="_blank">@{{grower.twitter}}</a><br />
       <div class="progress top-buffer text-center">
         <div class="progress-bar progress-bar-success" style="{{ 'width:' + progress + '%;' }}">{{ progress }}%</i></div>
         <span ng-if="left">{{ left }}%</span>
@@ -33,6 +35,19 @@
         </table>
         <input type="submit" value="{{ 'Support ' + grower.name +'\'s Beard!'}}" class="btn btn-success btn-lg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
       </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Badges</h3>
+      <span class="fa fa-thumbs-o-up profile-badge" tooltip="{{grower.name + ' has registered to become a Beard Grower!'}}"></span>
+      <span class="fa fa-instagram profile-badge" ng-show="grower.instagram" style="color:#06365f" tooltip="{{grower.name + ' has linked their instagram account to their Beard profile!'}}"></span>
+      <span class="fa fa-twitter profile-badge" ng-show="grower.twitter" style="color:#55acee" tooltip="{{grower.name + ' has linked their twitter account to their Beard profile!'}}"></span>
+      <span class="fa fa-gift profile-badge" ng-show="grower.raised > 0" style="color:#d9534f"  tooltip="{{grower.name + ' has been supported by a sponsor!'}}"></span>
+      <span class="profile-badge" ng-show="progress >= 25" style="color:#f0ad4e"  tooltip="25% Raised!">25%</span>
+      <span class="profile-badge" ng-show="progress >= 50" style="color:#5bc0de"  tooltip="50% Raised!">50%</span>
+      <span class="profile-badge" ng-show="progress >= 75" style="color:#428bca"  tooltip="75% Raised!">75%</span>
+      <span class="profile-badge" ng-show="progress >= 100" style="color:#5cb85c"  tooltip="100% Raised! Woah!">100%!</span>
     </div>
   </div>
   <div class="row">
