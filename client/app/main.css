@@ -50,9 +50,9 @@ div[ng-view].ng-enter {
 }
 
 .slide-in.ng-hide-remove {
-  -webkit-animation:fadeInRight 1s;
-  -moz-animation:fadeInRight 1s;
-  animation:fadeInRight 1s;
+  -webkit-animation:fadeInUp 1s;
+  -moz-animation:fadeInUp 1s;
+  animation:fadeInUp 1s;
 }
 
 .nav-item:hover {
