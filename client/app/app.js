@@ -8,7 +8,8 @@ angular.module('bbfabApp', [
   'ngAnimate',
   'ui.bootstrap',
   'angularFileUpload',
-  'timer'
+  'timer',
+  'ngSocial'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

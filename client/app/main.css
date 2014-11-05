@@ -157,3 +157,9 @@ div#main .container {
   font-size: 30pt;
   margin-right: 15px;
 }
+
+.sharebox {
+  margin-top: 15px;
+}
+
+.twitter-share-button[style] { vertical-align: text-bottom !important; }

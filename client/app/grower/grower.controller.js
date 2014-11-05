@@ -10,6 +10,9 @@
 angular.module('bbfabApp')
   .controller('GrowerCtrl', function ($scope, $http, $location, grower) {
     
+    $scope.absUrl = $location.absUrl();
+    $scope.host = $location.host();
+    
     grower = $scope.grower = grower.data;
     grower.raised |= 0;
     $scope.progress = ~~( (grower.raised / 600) * 100 );

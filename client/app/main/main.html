@@ -34,12 +34,25 @@
                 <strong>- The Barker Family</strong>
             </p>
         </div>
+        <hr class="visible-xs" />
         <div class="col-sm-3">
-            <div ng-show="countdown" class="slide-in">
+            <div>
                 <h4>Growth Timer:</h4>
                 <span class="countdown-timer"><timer start-time="1414814400000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer></span>
                 <h4>Conclude Growing In:</h4>
                 <span class="countdown-timer"><timer end-time="1430452799000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer></span>
+            </div>
+            
+            <!-- Share -->
+            <div class="sharebox">
+                <ul ng-social-buttons
+                    data-url="'http://bigbeardsforababy.com'"
+                    data-title="'Help support the Barker adoption by supporting a beard!'"
+                    data-description="'Help support the Barker adoption by supporting a beard!'"
+                    data-image="'http://bigbeardsforababy.com/assets/images/logo-md.png'">
+                  <li class="ng-social-facebook">Facebook</li>
+                  <li class="ng-social-twitter">Twitter</li>
+                </ul>
             </div>
             
             <!-- Instagram Feed -->

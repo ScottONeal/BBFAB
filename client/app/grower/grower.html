@@ -35,6 +35,19 @@
         </table>
         <input type="submit" value="{{ 'Support ' + grower.name +'\'s Beard!'}}" class="btn btn-success btn-lg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
       </form>
+      <h4>Share</h4>
+      <div class="sharebox">
+        <ul ng-social-buttons
+            data-url="absUrl"
+            data-title="'Checkout '+grower.name+'\'s Beard!'"
+            data-description="'Checkout '+grower.name+'\'s Beard!'"
+            showcounts="true"
+            data-image="host + '/assests/images/growers/' + grower.picture">
+          <li class="ng-social-facebook">Facebook</li>
+          <li class="ng-social-twitter">Twitter</li>
+          <li class="ng-social-pinterest">Pinterest</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="row">

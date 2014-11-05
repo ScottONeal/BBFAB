@@ -4,6 +4,10 @@ angular.module('bbfabApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [
     {
+      'title': 'Home',
+      'link': '/'
+    },
+    {
       'title': 'Our Story',
       'link': '/ourstory'
     },
