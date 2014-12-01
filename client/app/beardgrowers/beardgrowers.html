@@ -4,7 +4,7 @@
     <span class="h3" style="font-size: 35px"><small>Give them a highfive when you see them!</small></span>
     <hr />
   </p>
-  <div class="row top-buffer grower-anim" ng-repeat="grower in growers | orderBy :'raised':true">
+  <div class="row top-buffer" ng-repeat="grower in growers | orderBy :'raised':true">
     <div class="col-sm-6 col-xs-12">
       <a ng-click="gotoGrower(grower)">
         <img ng-if="grower.picture" class="img-responsive img-rounded profile-picture pull-right" ng-src="/assets/images/growers/{{ grower.picture}}" />
